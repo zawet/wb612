@@ -1,0 +1,9 @@
+.qkybody{ position: relative; }
+.qkycontent{ position: relative;}
+.join_inputlist input{ padding: 0 15px 0 100px; height: 50px; line-height: 50px;}
+.qkycase_list{ width: 30%; margin-left:2.5% ; border: 1px solid #eee;}
+.listimg_box .listimg_mask{ display: none;}
+.issrc.qkycase_list .listimg_box .listimg_mask{ display: block; background: rgb(28, 141, 233);}
+.qkyus_box.shu .qkyus.one{ width:36%; }
+.qkyus_box.shu .qkyus.two{width:29% ; margin-top: 2.5%; min-height:728px;}
+.qkyus_box.shu .qkyus.three{width:25%;  margin-top: 3.4%;min-height:716px;}

@@ -1,0 +1,100 @@
+@charset "utf-8";
+/*****************************主框架样式*****************************/
+.jlbody{ overflow-x: hidden; position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: 2;  background:#fff;}
+.jlbox{ position: absolute;z-index: 6666;width: 100%; height: 100%; top: 0; left: 0; box-sizing: border-box; padding: 0 2%;}
+/*背景层*/
+.page{ width: 100%; height: 100%;  position: fixed; top: 0; left: 0; overflow: hidden; z-index: 66;}
+.page img{display: block; height: 100%;  }
+.page img.w{ width: 100%; height: auto; margin: 0;}
+.page.pjpage{ height: 61.8%; position: relative;}
+.page.banneroa{ height:94%;}
+.jl-map{width: 100%; height: 100%;  position: fixed; top: 0; left: 0; overflow: hidden; z-index: 67;}
+
+/*加载页*/
+.loadprogress{ position: fixed; top: 0; left: 0;z-index: 9999999999999; width: 100%; height: 100%;
+  background-image:-webkit-linear-gradient(top,#020e28,#083488);
+  background-image:linear-gradient(top,#020e28,#083488);
+}
+.loadprogress.inout{ z-index: 9; background: none; opacity: 0.1; position: absolute;}
+.progress{position: absolute; top: 50%; left: 0;  width: 100%; margin-top: -60px;}
+.loadprogress.inout .progress{ top: 30%;}
+.progresslogo img{ width: 14%; margin: 0 auto 10px; display: block;}
+.progresszi{ width: 60%; height: 4px; background: rgba(255,255,255,0.6);border-radius: 4px; margin: 0 auto;}
+.progresszi b{ display: block; height: 100%; width: 2%; background: #fff;border-radius: 4px; max-width: 100%;}
+.progressyuan{ width:120px; height: 120px;display: -webkit-box !important;display: box !important;position: relative; margin: 0 auto;}
+.progressyuan .pro{ overflow: hidden; width: 50%; height: 100%; position: absolute; top: 0;}
+.progressyuan .pro b{ display: block; width: 200%; height: 100%; border:6px solid  transparent; border-radius:50%; position: absolute; box-sizing: border-box; top:0; left: 0; transform:rotateZ(225deg); }
+.progressyuan .pro.proleft{ left: 0;}
+.progressyuan .pro.proright{right: 0;}
+.progressyuan .pro.proleft b{ border-bottom:6px solid  #fff; border-left:6px solid  #fff; }
+.progressyuan .pro.proright b{ border-top:6px solid  #fff; border-right:6px solid  #fff;left: -100%; }
+.protxt{ position: absolute; width: 90%; height: 90%; top: 5%; left: 5%; border-radius: 50%; border-radius:50%; background: rgba(255,255,255,0.1); text-align: center;color: #fff; }
+.protxt img{ max-width:100%; display: block; margin: 15px auto 5px; width:60%;}
+.protxt span{ font-size: 26px; line-height: 108px;}
+.progresstxt{ text-align: center; color: #fff; font-size: 15px; padding: 10px 0;}
+
+.jl-logo{ display: block; width: 100%; }
+.jl-logo img{display: block; max-width: 100%; margin: 0 auto;}
+
+.jl-cadr.left{ width: 30%;float: left;margin-top: -4%;}
+.jl-cadr.right{ width: 40%;float: right;margin-top: -4%;}
+.jl-cadr.right2{ width:65%;float: right;}
+.jl-comp{ width:100%;  margin-bottom: 5px;}
+.jl-comp-title{ width: 100%; box-sizing: border-box; padding: 10px 15px 0; line-height: 24px;}
+.jl-comp-title label{ color: #fff; font-size: 20px;}
+.jl-comp-title label span{ color: #97aaec; font-size: 13px;}
+.jl-comp-title p{ color: #6f91dc; display: block; margin: 0; padding: 0; font-size: 18px;}
+.jl-comp-title p b{ color: #cf6d42; padding: 0 0 0 5px;}
+.jl-comp-cont { background: rgba(29,42,94,0.5); border-radius: 40px 4px 15px 4px; box-shadow: 0 2px 4px rgba(5, 43, 169,0.3); min-height: 100px; width: 100%; }
+.jl-comp-list{ width: calc(100% / 3); box-sizing: border-box; padding:15px 5px;  }
+
+.jcl-tit{ text-align: center; color: #6f91dc; line-height:24px; font-size: 14px; padding: 0 0 5px;}
+.jcl-tit b{ font-size: 15px; color: #acc4f9;}
+.jcl-tit span{ color: #00fefe;}
+.jcl-cont{ width: 100%; position: relative;}
+.jcl-cont b{ display: block; color: #00fefe; font-size: 14px; text-align: center;}
+.jcl-cont b span{ color: #6f91dc;}
+.jcl-cont .jcl-cont-l{ width: 25%; padding: 10px 0; line-height: 20px;}
+.jcl-cont .jcl-cont-m{ width: 50%; height:80px;}
+.jcl-cont .jcl-cont-r{ width: 25%;padding: 10px 0; line-height: 20px;}
+.jcl-cont .jcl-cont-icon{position: absolute; width: 50%; top:0; left: 25%; height: 80px; line-height: 80px; color: #00fefe; text-align: center;z-index: 66;}
+.jcl-cont .jcl-cont-icon i{font-size: 40px;}
+.jcl-cont a.ing{ color: #00fefe; border: 1px solid #00fefe; border-radius:4px; display:  inline-block; padding:1px 4px;  font-size: 12px; float: right;}
+.jcl-cont a.un{ color: #d2dbdb; border: 1px solid #d2dbdb; border-radius:4px; display:  inline-block; padding:1px 4px;  font-size: 12px; float: right;}
+
+.wpr .jcl-cont .jcl-cont-icon i{ font-size: 60px;}
+.wpr .jcl-cont .jcl-cont-l{ width: 30%;}
+.wpr .jcl-cont .jcl-cont-l b{ text-align: right; margin-top:5px;}
+.gr .jcl-cont .jcl-cont-icon i{ font-size: 55px;}
+.gr .jcl-cont .jcl-cont-l{ width: 30%;}
+.gr .jcl-cont .jcl-cont-l b{ text-align: right; margin-top:5px;}
+.gr .jcl-cont a{ margin-top: 25px;}
+.gr .jcl-cont .jcl-cont-icon.un{color: #d2dbdb;}
+
+.jl-radio{ padding: 5px 0;}
+.jl-radio a{float: left;display: block; color: #97aaec; font-size:14px; margin-right: 15px;}
+.jl-radio a p{ width:10px; height: 10px; border: 1px solid #acc4f9; border-radius: 50%; display: block; float: left; margin:4px  5px 0 0 ;  }
+.jl-radio a p b{ display: none; width: 6px; height: 6px; border-radius: 50%; background: #acc4f9; margin: 2px;}
+.jl-radio a.act p b{ display: block;}
+.jl-radio a span{float: left; line-height: 20px; display: block;}
+
+.jl-line-ec{ width: 70%; height: 200px;}
+.jl-pie-ec{ width: 30%; height: 200px;}
+
+
+
+.jcl-only-icon{ width: 26%; text-align: center;}
+.jcl-only-icon i{ font-size: 44px; color: #fff; text-shadow: 1px 1px 8px #00fefe;}
+.jcl-only-txt{ width:74%; color: #ddd; padding-left: 10px;box-sizing: border-box; min-height: 60px; }
+.jcl-only-tit{ color: #fff; font-size: 18px;  font-weight: 400; line-height: 26px;}
+.only .jcl-only-tit{ padding-left: 6%;}
+.jcl-only-txt p b{ color: #00fefe;}
+.jcl-only-txt p b.b2{ color: #fdd360;}
+.jcl-only-txt p b.b3{ color: #ff2020;}
+
+.only2 .jl-comp-cont{ min-height: 80px;}
+.only2 .jl-comp-list{width:25%; box-sizing: border-box; padding: 20px 10px; }
+.only2 .jcl-only-txt{min-height: 40px;border-right: 1px solid rgba(255,255,255,0.2); }
+.only2 .jcl-only-txt.last{border-right: 0;}
+.only2 .jcl-only-txt p{ font-size: 14px; line-height: 20px;}
+
