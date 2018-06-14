@@ -41,7 +41,7 @@ exports.isNull=function (data){
 	}
 	
 
-	 exports.echartsGauge=function(id){
+	 exports.echartsGauge=function(id,datas){
 	
 		//渲染表格（想看明白请看ECharts 3.0官方api） 
 		var myChart = echarts.init(document.getElementById(id));
@@ -109,7 +109,7 @@ exports.isNull=function (data){
 						color: '#00fefe',
 						rich: {}
 					},
-					data:[{value: 13, name: ''}]
+					data:[{value:datas, name: '温度'}]
 				}
 			]
 		};
@@ -118,12 +118,12 @@ exports.isNull=function (data){
 			myChart.setOption(option);
 	}
 
-	 exports.echartsPie=function(id,datas,tit){
+	 exports.echartsPie=function(id,datas){
 		var labels = new Array();
 		var values = new Array();
-		for(var key in datas){
+		for(var key in datas.data){
 			labels.push(key);
-			values.push({value:datas[key][0],name:key,itemStyle:{normal:{color:datas[key][1]}}});
+			values.push({value:datas.data[key][0],name:key,itemStyle:{normal:{color:datas.data[key][1]}}});
 		}
 		
 		//渲染表格（想看明白请看ECharts 3.0官方api） 
@@ -136,7 +136,7 @@ exports.isNull=function (data){
 				
 				series: [
 					{
-						name:tit,
+						name:datas.tit,
 						type:'pie',
 						//radius: ['60%','65%'],
 						radius: '80%',
@@ -146,7 +146,7 @@ exports.isNull=function (data){
 						itemStyle:{normal:{
 						}},
 						label:{normal:{textStyle:{fontSize:14},show:false,formatter: '{b}: \n {d}%'}},
-						labelLine:{normal:{smooth:false,length:12,length2:8,show:true}},
+						labelLine:{normal:{smooth:false,length:12,length2:8,show:false}},
 						data:values
 					}
 				]
@@ -157,12 +157,12 @@ exports.isNull=function (data){
 	}
 
 	
- exports.echartsLine=function(id,datas,tit){
+ exports.echartsLine=function(id,datas){
 	var labels = new Array();
 	var values = new Array();
-	for(var key in datas){
+	for(var key in datas.data){
 		labels.push(key);
-		values.push(datas[key]);
+		values.push(datas.data[key]);
 	}
 	//渲染表格（想看明白请看ECharts 3.0官方api） 
 	var myChart = echarts.init(document.getElementById(id));
@@ -197,7 +197,7 @@ exports.isNull=function (data){
 			},
 			series: [
 				{
-					name: tit,
+					name: datas.tit,
 					type: 'line',
 					barWidth:'60%',
 					smooth:true,
@@ -211,16 +211,27 @@ exports.isNull=function (data){
         myChart.setOption(option);
 }
 
- exports.echartsBar=function(id,datas,tit){
+ exports.echartsBar=function(id,datas){
 	var labels = new Array();
 	var values = new Array();
-	for(var key in datas){
+	var value1 = new Array();
+	var value2 = new Array();
+	var value3 = new Array();
+	var value4 = new Array();
+
+	for(var key in datas.data){
 		labels.push(key);
-		values.push(datas[key]);
+		value1.push(datas.data[key][0]);
+		value2.push(datas.data[key][1]);
+		value3.push(datas.data[key][2]);
+		value4.push(datas.data[key][3]);
+		//console.log(datas.data[key][0]);
 	}
+	 
+
 	var labelInfo={
 		normal: {
-        show: true,
+        show: false,
         position: "insideBottomLeft",
         distance: "15",
         align: "left",
@@ -269,36 +280,36 @@ exports.isNull=function (data){
 			},
 			series: [
 				{
-					name: tit[0],
+					name: datas.tit[0],
 					type: 'bar',
 					itemStyle:{normal:{color:'#418fb4'}},
 					barGap:"0%",
 					label:labelInfo,
-					data: values
+					data: value1
 				},
 				{
-					name: tit[1],
+					name: datas.tit[1],
 					type: 'bar',
 					itemStyle:{normal:{color:'#003366'}},
 					barGap:"0%",
 					label:labelInfo,
-					data: values
+					data: value2
 				},
 				{
-					name: tit[2],
+					name: datas.tit[2],
 					type: 'bar',
 					itemStyle:{normal:{color:'#045789'}},
 					barGap:"0%",
 					label:labelInfo,
-					data: values
+					data: value3
 				},
 				{
-					name: tit[3],
+					name: datas.tit[3],
 					type: 'bar',
 					itemStyle:{normal:{color:'#bb2e41'}},
 					barGap:"0%",
 					label:labelInfo,
-					data: values
+					data: value4
 				}
 			]
 		};
