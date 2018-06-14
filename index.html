@@ -43,25 +43,23 @@
                     <p class="fr">总能耗<b>9365.3kWh</b></p>
                 </div>
                 <div class="jl-comp-cont clear">
-                    <div class="jl-radio clear">
-                        <a class="clear jl-rali fr"><p><b></b></p><span>月</span></a>
-                        <a class="clear jl-rali act fr"><p><b></b></p><span>年</span></a>
-                        
+                    <div class="jl-radio clear" tochange="ee">
+                        <a class="clear jl-rali act fr" isdate="m"><p><b></b></p><span>月</span></a>
+                        <a class="clear jl-rali fr" isdate="y"><p><b></b></p><span>年</span></a> 
                     </div>
                     <div class="jl-line-ec fl" id="jl-eeline-ec"></div>
                     <div class="jl-pie-ec fl" id="jl-eepie-ec"></div>
                 </div>
             </div>
             <div class="jl-comp">
-                    <div class="jl-comp-title clear">
+                    <div class="jl-comp-title clear" tochange="we">
                         <label class="fl">水能 <span>WATER ENERGY</span></label>
                         <p class="fr">总能耗<b>9365.3</b> 吨</p>
                     </div>
                     <div class="jl-comp-cont clear">
                         <div class="jl-radio clear">
-                            <a class="clear jl-rali fr"><p><b></b></p><span>月</span></a>
-                            <a class="clear jl-rali act fr"><p><b></b></p><span>年</span></a>
-                            
+                            <a class="clear jl-rali  act fr" isdate="m"><p><b></b></p><span>月</span></a>
+                            <a class="clear jl-rali  fr" isdate="y"><p><b></b></p><span>年</span></a> 
                         </div>
                         <div class="jl-line-ec fl" id="jl-weline-ec"></div>
                         <div class="jl-pie-ec fl" id="jl-wepie-ec"></div>
@@ -250,12 +248,7 @@
     <script language="JavaScript" charset="utf-8" src="js/preloadjs-0.6.2.min.js"></script>
     <script src="js/sea.js"></script>
     <script src="js/seaconfig2.0.js"></script>
-    <script src="js/jquery-1.9.1.min.js"></script>
-    <script src="js/echarts4.min.js"></script>
-    <script src="js/data_view.js"></script>
     <script>
-        
-         
         seajs.use(["jq", "run", "sw","ec"], function (j, r, sw) {
             r.jl();
         });
