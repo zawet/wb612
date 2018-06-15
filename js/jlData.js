@@ -3,15 +3,33 @@ define({ //dedine闭包
 		{id: "bg", src: "images/bg.png"},
 		{id: "logo", src: "images/logo.png"}
 		
-	], 
+        ], 
+        ajaxUrl:[
+		"https://iottest.mideadc.com/data/electric-energy?show=year",
+		"https://iottest.mideadc.com/data/electric-energy?show=month",
+
+		"https://iottest.mideadc.com/data/water-energy?show=year",
+		"https://iottest.mideadc.com/data/water-energy?show=month",
+
+		"https://iottest.mideadc.com/data/paking-stat",
+
+		"https://iottest.mideadc.com/data/distribution-room",
+		"https://iottest.mideadc.com/data/water-pump-room",
+		"https://iottest.mideadc.com/data/generator-room",
+
+		"https://iottest.mideadc.com/data/charge-stat",
+		"https://iottest.mideadc.com/data/door-stat",
+		"https://iottest.mideadc.com/data/other-stat"
+	],
         weData: {
+                "totalEnergy":1290.0,
                 line: {
                         tit: "水能消耗",
                         data: {"5.1": 45,"5.2": 55, "5.3": 36,"5.4": 28,"5.5": 64,"5.6": 51,"5.7": 20,"5.8": 71,"5.9": 42,"5.10": 45,
                         "5.11": 55, "5.12": 36,"5.13": 28,"5.14": 64,"5.15": 51,"5.16": 20,"5.17": 71,"5.18": 42,"5.19": 41,
                         "5.20": 55, "5.21": 36,"5.22": 28,"5.23": 64,"5.24": 51,"5.25": 20,"5.26": 71,"5.27": 42,"5.28": 28,"5.29": 59,"5.30": 30,"5.31": 48}
                 },
-                pie: {
+                pie: { 
                         tit: "水能耗能占比",
                         data: {
                                 "房1": [71, "#07c0c0 "],
@@ -19,11 +37,15 @@ define({ //dedine闭包
                                 "房3": [19, "#cf3b6f"]
                         }
                 },
-                lineY: {
+        },
+        weDataY:{
+                "totalEnergy":15290.0,
+                line: {
+                        
                         tit: "水能年消耗",
                         data: {"1月": 405,"2月": 535, "3月": 376,"4月": 218,"5月": 654,"6月": 521,"7月": 270,"8月": 731,"9月": 422,"10月": 719,"11月": 441,"12月": 401}
                 },
-                pieY: {
+                pie: {
                         tit: "水能耗能年占比",
                         data: {
                                 "房1": [7001, "#07c0c0 "],
@@ -31,8 +53,11 @@ define({ //dedine闭包
                                 "房3": [1009, "#cf3b6f"]
                         }
                 }
+        
+            
         },
         eeData: {
+                "totalEnergy":1590.0,
                 line: {
                         tit: "电能消耗",
                         data: {
@@ -55,12 +80,15 @@ define({ //dedine闭包
                                 "房2": [29, "#ffb768"],
                                 "房3": [19, "#cf3b6f"]
                         }
-                },
-                lineY: {
+                }
+        },
+        eeDataY: {
+                "totalEnergy":15690.0,
+                line: {
                         tit: "电能年消耗",
                         data: {"1月": 405,"2月": 535, "3月": 376,"4月": 218,"5月": 654,"6月": 521,"7月": 270,"8月": 731,"9月": 422,"10月": 719,"11月": 441,"12月": 401}
                 },
-                pieY: {
+                pie: {
                         tit: "电能耗能年占比",
                         data: {
                                 "房1": [7001, "#07c0c0 "],
@@ -125,5 +153,14 @@ define({ //dedine闭包
                 {roomNumber:"房4",roomD:"28.6 °C",roomRH:"39.2 %RH",roomDr:["1.2","1.2","1.2"],runing:true},
                 {roomNumber:"房5",roomD:"28.6 °C",roomRH:"39.2 %RH",roomDr:["1.2","1.2","1.2"],runing:false},      
              ],
+             others:{
+                "Charge":{"totalNum":60,"faultNum":10,"curChargeNum":20,"curPower":3000.3},
+                "EntranceGuard":{"totalNum":600,"faultNum":100,"openTimes":2000,"closeTimes":3000},
+                "patrol":{"totalPatrol":60,"curPatrol":10},
+                "perimeterSecurity":{"alarmTimes":300},
+                "camera":{"totalNum":60,"offlineNum":10},
+                "alarmInfo":{"totalAlarm":60,"handledAlarm":10},
+                "landscaping":{"status":"启动","soilMoisture":50}
+            }
 
 });

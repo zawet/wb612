@@ -40,7 +40,7 @@
             <div class="jl-comp">
                 <div class="jl-comp-title clear">
                     <label class="fl">电能 <span>ELECTRIC ENERGY</span></label>
-                    <p class="fr">总能耗<b>9365.3kWh</b></p>
+                    <p class="fr">总能耗<b class="eetotalEnergy">9365.3</b>kWh</p>
                 </div>
                 <div class="jl-comp-cont clear">
                     <div class="jl-radio clear" tochange="ee">
@@ -54,7 +54,7 @@
             <div class="jl-comp">
                     <div class="jl-comp-title clear" tochange="we">
                         <label class="fl">水能 <span>WATER ENERGY</span></label>
-                        <p class="fr">总能耗<b>9365.3</b> 吨</p>
+                        <p class="fr">总能耗<b  class="wetotalEnergy">9365.3</b> 吨</p>
                     </div>
                     <div class="jl-comp-cont clear">
                         <div class="jl-radio clear">
@@ -139,47 +139,32 @@
                             </div>
                         </div>
 
-                        <!-- <div class="jl-comp-list fl">
-                                <p class="jcl-tit"><b> 2房</b>:湿温度 <span>28.6 °C</span>  | <span>39.2 %RH</span> </p>
-                                <div class="clear jcl-cont">
-                                    <div class="fl jcl-cont-l"><a class="un">停止</a></div>
-                                    <div class="jcl-cont-icon un"><i class="zicon">&#xe61f;</i></div>
-                                </div>   
-                        </div>
-                        <div class="jl-comp-list fl">
-                                    <p class="jcl-tit"><b> 3房</b>:湿温度 <span>28.6 °C</span>  | <span>39.2 %RH</span> </p>
-                                    <div class="clear jcl-cont">
-                                        <div class="fl jcl-cont-l"><a  class="un">停止</a></div>
-                                        
-                                        <div class="jcl-cont-icon un"><i class="zicon">&#xe61f;</i></div>
-                                    </div>   
-                            </div> -->
                         </div>
             </div>
             <div class="jl-comp only pt15">
                 <div class="jl-comp-cont clear">
                     <div class="jl-comp-list fl clear">
                          <div class="jcl-only-icon fl"><i class="zicon">&#xe604;</i></div>
-                         <div class="jcl-only-txt fl">
-                             <p>总充电位 <b>200</b>  故障 <b class="b2">0</b> </p>
-                             <p>当前充电车辆 <b>56</b> </p>
-                             <p>当前总功率 <b>856kW</b> </p>
+                         <div class="jcl-only-txt fl Charge">
+                             <p>总充电位 <b class="totalNum">200</b>  故障 <b class="b2 faultNum">0</b> </p>
+                             <p>当前充电车辆 <b class="curChargeNum">56</b> </p>
+                             <p>当前总功率 <b class="curPower">856</b>kW </p>
                          </div>
                          <label class="jcl-only-tit">充电桩模块数据</label>    
                     </div>
                     <div class="jl-comp-list fl clear">
                         <div class="jcl-only-icon fl"><i class="zicon">&#xe600;</i></div>
-                        <div class="jcl-only-txt fl">
-                            <p>门禁：总数 <b>56</b>  故障 <b class="b2">0</b> </p>
-                            <p>大堂门：开：<b>5</b> 关： <b class="b2">51</b></p>
+                        <div class="jcl-only-txt fl EntranceGuard">
+                            <p>门禁：总数 <b class="totalNum">56</b>  故障 <b class="b2 faultNum">0</b> </p>
+                            <p>大堂门：开：<b class="openTimes">5</b> 关： <b class="b2 closeTimes">51</b></p>
                         </div>
                         <label class="jcl-only-tit">门禁及开门记录</label>     
                     </div>
                     <div class="jl-comp-list fl clear">
                             <div class="jcl-only-icon fl"><i class="zicon">&#xe646;</i></div>
-                            <div class="jcl-only-txt fl">
-                                <p>电子巡更点：<b>260</b>  </p>
-                                <p>当前待巡： <b>10</b> </p>
+                            <div class="jcl-only-txt fl patrol">
+                                <p>电子巡更点：<b class="totalPatrol">260</b>  </p>
+                                <p>当前待巡： <b class="curPatrol">10</b> </p>
                             </div>
                             <label class="jcl-only-tit">电子巡更</label>              
                     </div>
@@ -191,30 +176,30 @@
                         <div class="jl-comp-cont clear">
                             <div class="jl-comp-list fl clear">
                                 <div class="jcl-only-icon fl"><i class="zicon">&#xe64b;</i></div>
-                                <div class="jcl-only-txt fl">
+                                <div class="jcl-only-txt fl perimeterSecurity">
                                     <label class="jcl-only-tit">周界安防</label>
-                                    <p>报警 <b class="b3">1</b>   |  已处理 <b>363</b></p>
+                                    <p>报警 <b class="b3 alarmTimes">1</b>   |  已处理 <b>363</b></p>
                                 </div>     
                             </div>
                             <div class="jl-comp-list fl">
                                     <div class="jcl-only-icon fl"><i class="zicon">&#xe65b;</i></div>
-                                    <div class="jcl-only-txt fl">
+                                    <div class="jcl-only-txt fl camera">
                                         <label class="jcl-only-tit">视频监控</label>
-                                        <p>在线 <b>98</b> 路 |  离线<b class="b2">0</b> 路</p>
+                                        <p>在线 <b class="totalNum">98</b> 路 |  离线<b class="b2 offlineNum">0</b> 路</p>
                                     </div>      
                             </div>
                             <div class="jl-comp-list fl">
                                     <div class="jcl-only-icon fl"><i class="zicon">&#xe603;</i></div>
-                                    <div class="jcl-only-txt fl">
+                                    <div class="jcl-only-txt fl alarmInfo">
                                         <label class="jcl-only-tit">报警信息</label>
-                                        <p>当前 <b class="b3"> 1 </b>  |  已处理<b>999</b></p>
+                                        <p>当前 <b class="b3 totalAlarm"> 1 </b>  |  已处理<b class="handledAlarm">999</b></p>
                                     </div>       
                             </div>
                             <div class="jl-comp-list fl">
                                     <div class="jcl-only-icon fl"><i class="zicon">&#xea12;</i></div>
-                                    <div class="jcl-only-txt fl last">
+                                    <div class="jcl-only-txt fl last landscaping">
                                         <label class="jcl-only-tit">园林绿化</label>
-                                        <p>浇灌状态:<b>启动</b>|土壤含水量<b>55%</b></p>
+                                        <p>浇灌状态:<b class="status">启动</b>|土壤含水量<b class="soilMoisture">55</b>%</p>
                                     </div>    
                                 </div>
                         </div>
