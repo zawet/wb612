@@ -318,4 +318,94 @@ exports.isNull=function (data){
         myChart.setOption(option);
 }
 
+// for(var i=0;i<jldata.pdData.length;i++){
+		// 	$("#pdMoudle .roomNumber").html(jldata.pdData[i].roomNumber);
+		// 	$("#pdMoudle .roomD").html(jldata.pdData[i].roomD);
+		// 	$("#pdMoudle .roomRH").html(jldata.pdData[i].roomRH);
+
+		// 	$("#pdMoudle .jl-electric-ec").attr("id","jl-electric-ec"+i);
+		// 	pdec.push(jldata.pdData[i].Ds);
+
+		// 	$("#pdMoudle .roomDl,#pdMoudle .roomDr").html("");
+		// 	for( var j=0;j<jldata.pdData[i].roomDl.length;j++){
+		// 		$("#pdMoudle .roomDl").append('<b >'+jldata.pdData[i].roomDl[j]+'  <span>°C</span>');
+		// 	}
+		// 	for( var k=0;k<jldata.pdData[i].roomDr.length;k++){
+		// 		$("#pdMoudle .roomDr").append('<b >'+jldata.pdData[i].roomDr[k]+'  <span>A</span>');
+		// 	}
+			
+		// 	$(".pd .swiper-wrapper").append($("#pdMoudle").html());
+		// }
+
+		// var pd = new Swiper(".pd", {
+		// 	slidesPerView :3,
+		// 	autoplay : 3000
+			
+		// });
+
+		// for(var i=0;i<jldata.sbData.length;i++){
+		// 	$("#sbMoudle .roomNumber").html(jldata.sbData[i].roomNumber);
+		// 	$("#sbMoudle .roomD").html(jldata.sbData[i].roomD);
+		// 	$("#sbMoudle .roomRH").html(jldata.sbData[i].roomRH);
+		// 	$("#sbMoudle .roomDr").html("");
+		// 	for( var k=0;k<jldata.sbData[i].roomDr.length;k++){
+		// 		$("#sbMoudle .roomDr").append('<b >'+jldata.sbData[i].roomDr[k]+'  <span>A</span>');
+		// 	}
+
+		// 	$("#sbMoudle .roomHZ").html(jldata.sbData[i].roomHZ+"<span>HZ</span>");
+
+		// 	if(jldata.sbData[i].runing){
+		// 		$("#sbMoudle .runing").addClass("ing").removeClass("un").html("运行");
+		// 		$("#sbMoudle .roomHZ,#sbMoudle .roomDr").removeClass("yc");
+		// 		$("#sbMoudle .jcl-cont-icon").removeClass("un");
+		// 	}else{
+		// 		$("#sbMoudle .runing").addClass("un").removeClass("ing").html("停止");
+		// 		$("#sbMoudle .roomHZ,#sbMoudle .roomDr").addClass("yc");
+		// 		$("#sbMoudle .jcl-cont-icon").addClass("un");
+		// 	}
+			
+		// 	$(".sb .swiper-wrapper").append($("#sbMoudle").html());
+		// }
+
+		// var sb = new Swiper(".sb", {
+		// 	slidesPerView :3,
+		// 	autoplay : 3000
+			
+		// });
+
+		// for(var i=0;i<jldata.grData.length;i++){
+		// 	$("#grMoudle .roomNumber").html(jldata.grData[i].roomNumber);
+		// 	$("#grMoudle .roomD").html(jldata.grData[i].roomD);
+		// 	$("#grMoudle .roomRH").html(jldata.grData[i].roomRH);
+		// 	$("#grMoudle .roomDr").html("");
+		// 	for( var k=0;k<jldata.grData[i].roomDr.length;k++){
+		// 		$("#grMoudle .roomDr").append('<b >'+jldata.grData[i].roomDr[k]+'  <span>A</span>');
+		// 	}
+
+		// 	if(jldata.grData[i].runing){
+		// 		$("#grMoudle .runing").addClass("ing").removeClass("un").html("运行");
+		// 		$("#grMoudle .roomDr").removeClass("yc");
+		// 		$("#grMoudle .jcl-cont-icon").removeClass("un");
+		// 	}else{
+		// 		$("#grMoudle .runing").addClass("un").removeClass("ing").html("停止");
+		// 		$("#grMoudle .roomDr").addClass("yc");
+		// 		$("#grMoudle .jcl-cont-icon").addClass("un");
+		// 	}
+			
+			
+		// 	$(".gr .swiper-wrapper").append($("#grMoudle").html());
+		// }
+
+		// var gr = new Swiper(".gr", {
+		// 	slidesPerView :3,
+		// 	autoplay : 3000
+			
+		// });
+
+		// $(window).scroll(function(){
+		// 	 var body_scr=document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+
+		// });
+
+
 });

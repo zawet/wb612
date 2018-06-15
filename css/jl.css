@@ -60,7 +60,7 @@
 .jcl-cont .jcl-cont-icon{position: absolute; width: 50%; top:0; left: 25%; height: 80px; line-height: 80px; color: #00fefe; text-align: center;z-index: 66;}
 .jcl-cont .jcl-cont-icon i{font-size: 40px;}
 .jcl-cont a.ing{ color: #00fefe; border: 1px solid #00fefe; border-radius:4px; display:  inline-block; padding:1px 4px;  font-size: 12px; float: right;}
-.jcl-cont a.un{ color: #d2dbdb; border: 1px solid #d2dbdb; border-radius:4px; display:  inline-block; padding:1px 4px;  font-size: 12px; float: right;}
+.jcl-cont a.un{ color: #d2dbdb; border: 1px solid #d2dbdb; border-radius:4px; display:  inline-block; padding:1px 4px;  font-size: 12px; float: right;margin-top: 25px;}
 
 .wpr .jcl-cont .jcl-cont-icon i{ font-size: 60px;}
 .wpr .jcl-cont .jcl-cont-l{ width: 30%;}
@@ -69,7 +69,7 @@
 .gr .jcl-cont .jcl-cont-l{ width: 30%;}
 .gr .jcl-cont .jcl-cont-l b{ text-align: right; margin-top:5px;}
 .gr .jcl-cont a{ margin-top: 25px;}
-.gr .jcl-cont .jcl-cont-icon.un{color: #d2dbdb;}
+.jcl-cont .jcl-cont-icon.un{color: #d2dbdb;    }
 
 .jl-radio{ padding: 5px 0;}
 .jl-radio a{float: left;display: block; color: #97aaec; font-size:14px; margin-right: 15px;}
