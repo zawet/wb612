@@ -185,7 +185,7 @@ exports.jl = function () {
 		setInterval(() => {
 			st();
 			//console.log(l++);
-		 },12000);
+		 },9600);
 
 		 function st(){
 			swpd.stopAutoplay();
