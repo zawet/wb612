@@ -8,6 +8,7 @@ seajs.config({
   'load':"load.js",
   'mouldData':'Data.js',
   'sw':'swiper/3.4.1/js/swiper.min.js' ,
+  'sw342':"swiper-3.4.2.min.js",
   'ec':"echarts4.min.js",
   'ecfun':"data_view.js" 
   },
