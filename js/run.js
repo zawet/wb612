@@ -4,7 +4,7 @@ define(function (require, exports) { //dedine闭包
 	var jldataAjax=[];
 	var funs=require("./jlfunction");//函数导入
 	var pdec=[];//缓存度数
-	var swpd,swsb,swgr;
+	//var swpd,swsb,swgr;
 	 
 	//模拟异步过来后的数据（参照）
 	// var jldataAjaxMn={
@@ -103,10 +103,12 @@ exports.jl = function () {
             $("." + key).html(loads.preload.getResult(key));
 		}
 		loads.pageimg($(".page"), 1920, 1080);
+		loadafter();
 		window.onresize = function () {
 			loads.pageimg($(".page"), 1920, 1080);
+			loadafter();
 		}
-		loadafter();
+		
 		//每2秒刷新数据
 		// setInterval(() => {
 		// 	loadafter();
@@ -159,10 +161,59 @@ exports.jl = function () {
 		funs.echartsBar("jl-plline-ec",jldata.plData);
 		
 		//右边三排
-		mouldeDrwa("pdMoudle",jldata.pdData,"pd","swpd");
-		mouldeDrwa("sbMoudle",jldata.sbData,"sb","swsb");
-		mouldeDrwa("grMoudle",jldata.grData,"gr","swgr");
+		mouldeDrwa("pdMoudle",jldata.pdData,"pd");
+		mouldeDrwa("sbMoudle",jldata.sbData,"sb");
+		mouldeDrwa("grMoudle",jldata.grData,"grs");
+
+		var swpd = new Swiper(".pd", {
+			slidesPerView :3,
+			autoplay : 100
+		});
+		var swsb = new Swiper(".sb", {
+			slidesPerView :3,
+			autoplay : 100
+		});
+		var swgr = new Swiper(".grs", {
+			slidesPerView :3,
+			autoplay : 100
+		});
+
 		for(var ii=0;ii<pdec.length;ii++){funs.echartsGauge("jl-electric-ec"+ii,pdec[ii]);}
+
+		st();
+		var l=0;
+		setInterval(() => {
+			st();
+			//console.log(l++);
+		 },12000);
+
+		 function st(){
+			swpd.stopAutoplay();
+			swsb.stopAutoplay();
+			swgr.stopAutoplay();
+
+			setTimeout(() => {
+				swpd.startAutoplay();
+				setTimeout(() => {swpd.stopAutoplay();},100);
+				swsb.stopAutoplay();
+				swgr.stopAutoplay();
+			}, 3000);
+			setTimeout(() => {
+				swpd.stopAutoplay();
+				swsb.startAutoplay();
+				setTimeout(() => {swsb.stopAutoplay();},100);
+				swgr.stopAutoplay();
+			}, 6000);
+			setTimeout(() => {
+				swpd.stopAutoplay();
+				swsb.stopAutoplay();
+				swgr.startAutoplay();
+				setTimeout(() => {swgr.stopAutoplay();},100);
+			},9000);
+		 }
+		
+		
+
 
 		//其他
 		for(var key in jldata.others){
@@ -173,7 +224,7 @@ exports.jl = function () {
 	
 	}
 
-	function mouldeDrwa(mID,data,drwaID,sw){
+	function mouldeDrwa(mID,data,drwaID){
 		for(var i=0;i<data.length;i++){
 			$("#"+mID+" .roomNumber").html(data[i].roomNumber);
 			$("#"+mID+" .roomD").html(data[i].roomD);
@@ -209,10 +260,7 @@ exports.jl = function () {
 			$("."+drwaID+" .swiper-wrapper").append($("#"+mID).html());
 		}
 
-		sw = new Swiper("."+drwaID, {
-			slidesPerView :3,
-			autoplay : 3000
-		});
+		
 	}
 
 	function ajaxData(url){

@@ -146,14 +146,14 @@ define({ //dedine闭包
                 {roomNumber:"房4",roomD:"28.6 °C",roomRH:"39.2 %RH",roomHZ:"49.93",roomDr:["1.2","1.2","1.2"],runing:true},
                 {roomNumber:"房5",roomD:"28.6 °C",roomRH:"39.2 %RH",roomHZ:"49.93",roomDr:["1.2","1.2","1.2"],runing:false},      
              ],
-             grData:[//发动机房数据
+        grData:[//发动机房数据
                 {roomNumber:"房1",roomD:"28.6 °C",roomRH:"39.2 %RH",roomDr:["1.2","1.2","1.2"],runing:true},
                 {roomNumber:"房2",roomD:"28.6 °C",roomRH:"39.2 %RH",roomDr:["1.2","1.2","1.2"],runing:true},
                 {roomNumber:"房3",roomD:"28.6 °C",roomRH:"39.2 %RH",roomDr:["1.2","1.2","1.2"],runing:true},
                 {roomNumber:"房4",roomD:"28.6 °C",roomRH:"39.2 %RH",roomDr:["1.2","1.2","1.2"],runing:true},
                 {roomNumber:"房5",roomD:"28.6 °C",roomRH:"39.2 %RH",roomDr:["1.2","1.2","1.2"],runing:false},      
              ],
-             others:{
+        others:{
                 "Charge":{"totalNum":60,"faultNum":10,"curChargeNum":20,"curPower":3000.3},
                 "EntranceGuard":{"totalNum":600,"faultNum":100,"openTimes":2000,"closeTimes":3000},
                 "patrol":{"totalPatrol":60,"curPatrol":10},
