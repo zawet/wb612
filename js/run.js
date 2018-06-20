@@ -109,6 +109,10 @@ exports.jl = function () {
 			loadafter();
 		}
 		
+$(".cameras").click(function(){
+	alert("我是摄像头："+$(this).index());
+})
+
 		//每2秒刷新数据
 		// setInterval(() => {
 		// 	loadafter();
@@ -167,25 +171,35 @@ exports.jl = function () {
 
 		var swpd = new Swiper(".pd", {
 			slidesPerView :3,
-			autoplay : 100
+			autoplay : 3000,
+			slidesPerGroup : 3,
+			//loop : true,
+			onSlideChangeStart: function(swiper){
+				// for(var key in jldata.others){
+				// 	for(var inkey in jldata.others[key]){
+				// 		$("."+key).find("."+inkey).html(jldata.others[key][inkey]);
+				// 	}	
+				// }
+			  }
 		});
 		var swsb = new Swiper(".sb", {
 			slidesPerView :3,
-			autoplay : 100
+			autoplay : 6000,
+			slidesPerGroup : 3,
+			loop : true
 		});
 		var swgr = new Swiper(".grs", {
 			slidesPerView :3,
-			autoplay : 100
+			//autoplay : 2000
 		});
 
 		for(var ii=0;ii<pdec.length;ii++){funs.echartsGauge("jl-electric-ec"+ii,pdec[ii]);}
 
-		st();
-		var l=0;
-		setInterval(() => {
-			st();
-			//console.log(l++);
-		 },9600);
+		//st();
+		//var l=0;
+		//var stt= setInterval(() => {
+		//	st();
+		 //},9600);
 
 		 function st(){
 			swpd.stopAutoplay();
@@ -194,21 +208,21 @@ exports.jl = function () {
 
 			setTimeout(() => {
 				swpd.startAutoplay();
-				setTimeout(() => {swpd.stopAutoplay();},100);
+				setTimeout(() => {swpd.stopAutoplay();},2000);
 				swsb.stopAutoplay();
 				swgr.stopAutoplay();
 			}, 3000);
 			setTimeout(() => {
 				swpd.stopAutoplay();
 				swsb.startAutoplay();
-				setTimeout(() => {swsb.stopAutoplay();},100);
+				setTimeout(() => {swsb.stopAutoplay();},2000);
 				swgr.stopAutoplay();
 			}, 6000);
 			setTimeout(() => {
 				swpd.stopAutoplay();
 				swsb.stopAutoplay();
 				swgr.startAutoplay();
-				setTimeout(() => {swgr.stopAutoplay();},100);
+				setTimeout(() => {swgr.stopAutoplay();},2000);
 			},9000);
 		 }
 		
