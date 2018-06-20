@@ -8,7 +8,15 @@
 .page img.w{ width: 100%; height: auto; margin: 0;}
 .page.pjpage{ height: 61.8%; position: relative;}
 .page.banneroa{ height:94%;}
-.jl-map{width: 100%; height: 100%;  position: fixed; top: 0; left: 0; overflow: hidden; z-index: 67;}
+.jl-map{width: 30%; height: 100%;  position: fixed; top: 0; left: 30%; overflow: hidden; z-index: 66666;}
+.cameras{ width:6em; position: absolute; top: 30%; left: 60%; z-index: 666666; opacity: 0.6;}
+.cameras img{ width: 100%;}
+.cameras:hover{ cursor: pointer;  opacity: 1;}
+.cameras:nth-child(2){ top: 50%; left: 40%}
+.cameras:nth-child(3){ top:58%; left: 5%}
+.cameras:nth-child(4){ top: 60%; left: 45%}
+.cameras:nth-child(5){ top: 40%; left: 58%}
+.cameras:nth-child(6){ top: 50%; left: 40%}
 
 /*加载页*/
 .loadprogress{ position: fixed; top: 0; left: 0;z-index: 9999999999999; width: 100%; height: 100%;
@@ -39,17 +47,19 @@
 .jl-cadr.left{ width: 30%;float: left;margin-top: -4%;}
 .jl-cadr.right{ width: 40%;float: right;margin-top: -4%;}
 .jl-cadr.right2{ width:65%;float: right;}
-.jl-comp{ width:100%;  margin-bottom:1.3em;  }
+.jl-comp{ width:100%;  margin-bottom:1.1em;  }
 .jl-cadr.left .jl-comp{height:32%; margin-bottom:1.9em;}
 .jl-cadr.right .jl-comp{height:24%;}
 .jl-cadr.right2 .jl-comp{height:10%;}
 .jl-comp-title{ width: 100%; box-sizing: border-box; padding: 10px 15px 0; line-height:2em;}
 .jl-comp-title label{ color: #fff; font-size: 1.4em;}
 .jl-comp-title label span{ color: #97aaec; font-size: 0.8em;}
-.jl-comp-title p{ color: #6f91dc; display: block; margin: 0; padding: 0; font-size: 1.2em;}
+.jl-comp-title p{ color: #6f91dc; display: block; margin: 0; padding: 0; font-size: 1.2em; text-align:center;}
 .jl-comp-title p b{ color: #cf6d42; padding: 0 0 0 5px;}
+.jcl-btit{ color: #6f91dc; display: block; margin: 0; padding: 0; font-size: 1em; text-align:center;}
+.jcl-btit b{ color: #cf6d42; padding: 0 0 0 5px;}
 .jl-comp-cont { background: rgba(29,42,94,0.5); border-radius: 40px 4px 15px 4px; box-shadow: 0 2px 4px rgba(5, 43, 169,0.3); min-height: 100%; width: 100%; }
-.jl-comp-list{ width: calc(100% / 3); box-sizing: border-box; padding:1.2em 1%;  }
+.jl-comp-list{ width: calc(100% / 3); box-sizing: border-box; padding:0.9em 1%;  }
 
 .jcl-tit{ text-align: center; color: #6f91dc; line-height:2em; font-size: 1em; padding: 0 0 1%;}
 .jcl-tit b{ font-size: 1.1em; color: #acc4f9;}
