@@ -201,30 +201,30 @@ $(".cameras").click(function(){
 		//	st();
 		 //},9600);
 
-		 function st(){
-			swpd.stopAutoplay();
-			swsb.stopAutoplay();
-			swgr.stopAutoplay();
+		//  function st(){
+		// 	swpd.stopAutoplay();
+		// 	swsb.stopAutoplay();
+		// 	swgr.stopAutoplay();
 
-			setTimeout(() => {
-				swpd.startAutoplay();
-				setTimeout(() => {swpd.stopAutoplay();},2000);
-				swsb.stopAutoplay();
-				swgr.stopAutoplay();
-			}, 3000);
-			setTimeout(() => {
-				swpd.stopAutoplay();
-				swsb.startAutoplay();
-				setTimeout(() => {swsb.stopAutoplay();},2000);
-				swgr.stopAutoplay();
-			}, 6000);
-			setTimeout(() => {
-				swpd.stopAutoplay();
-				swsb.stopAutoplay();
-				swgr.startAutoplay();
-				setTimeout(() => {swgr.stopAutoplay();},2000);
-			},9000);
-		 }
+		// 	setTimeout(() => {
+		// 		swpd.startAutoplay();
+		// 		setTimeout(() => {swpd.stopAutoplay();},2000);
+		// 		swsb.stopAutoplay();
+		// 		swgr.stopAutoplay();
+		// 	}, 3000);
+		// 	setTimeout(() => {
+		// 		swpd.stopAutoplay();
+		// 		swsb.startAutoplay();
+		// 		setTimeout(() => {swsb.stopAutoplay();},2000);
+		// 		swgr.stopAutoplay();
+		// 	}, 6000);
+		// 	setTimeout(() => {
+		// 		swpd.stopAutoplay();
+		// 		swsb.stopAutoplay();
+		// 		swgr.startAutoplay();
+		// 		setTimeout(() => {swgr.stopAutoplay();},2000);
+		// 	},9000);
+		//  }
 		
 		
 
