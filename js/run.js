@@ -26,34 +26,34 @@ exports.jl = function () {
 		//浏览器窗户变化时
 		window.onresize = function () {
 			loads.pageimg($(".page"), 1920, 1080);
-			loadData(jldata);
+			dataPOST();
 		}
 		//摄像头点击后
 		$(".cameras").click(function(){
 			alert("我是摄像头："+$(this).index());
 		});
-
-		//刷新数据
-		RfData();
+		//ajaxData(jlconfig.ajaxUrl[0][0],jlconfig.ajaxUrl[0][1])//测试用的
+		
+		//RfData();//刷新数据
 	})
 }
 
 //数据刷新机制
 function RfData(){
-	//2秒刷新一次数据，刷新20秒，休息10秒，再开始刷	
+	//4秒刷新一次数据，刷新20秒，休息10秒，再开始刷	
 	toRfData();
 	setInterval(function(){
 		toRfData();
 	},30000);
 
 	function toRfData(){
-		//每2秒刷新数据
+		//每4秒刷新数据
 		var count=1;
 		console.log("数据开始刷新");
 		var rfData= setInterval(function() {
 			console.log("刷新："+count++);
-			ajaxLoadData();//异步获取数据后进行数据加载在页面上显示
-		},2000);
+			dataPOST();//异步获取数据后进行数据加载在页面上显示
+		},4000);
 		//更新20秒后停止刷新数据
 		setTimeout(function(){
 			clearInterval(rfData);
@@ -64,33 +64,29 @@ function RfData(){
 
 //循环异步获取
 function dataPOST(){
-	var datas=[];
+
 	for(var d=0;d<jlconfig.ajaxUrl.length;d++){
-		datas.push(ajaxData(jlconfig.ajaxUrl[d]));
+		ajaxData(jlconfig.ajaxUrl[d][0],jlconfig.ajaxUrl[d][1]);
 	}
-	return datas;
+
 }
 //异步获取数据
-function ajaxData(url){
+function ajaxData(url,key){
 	$.ajax({ 
 		type: "POST",
 		url: url,  
-		dataType: 'jsonp',
+		dataType: 'json',
 		crossDomain: true,
 		success: function(data){
-			return data;
+			//这里要让异步过来的数据跟本地jldata的模拟数据的格式和命名对好，
+			console.log(data,key);
+			//jldata[key]=data;
+			//loadData(jldata);
 		}
 	});
 }
 
-//异步获取数据后进行数据加载在页面上显示
-function ajaxLoadData(){
-//console.log(dataPOST());
-//这里要让异步过来的数据跟本地jldata的模拟数据的格式和命名对好，
-//异步过来的数据是一个数组，
-//jldata是json,里面分了很多模块数据，把jldataAjax的数据赋给jldata，就可以了，要看清对应数据的细节作用
-loadData(jldata);
-}
+
 
 
 //渲染dom
