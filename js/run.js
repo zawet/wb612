@@ -1,292 +1,225 @@
 define(function (require, exports) { //dedine闭包  
 	var loads=require("./load");//加载机制引用
-	var jldata=require("./jlData");//数据导入
-	var jldataAjax=[];
 	var funs=require("./jlfunction");//函数导入
-	var pdec=[];//缓存度数
-	//var swpd,swsb,swgr;
-	 
-	//模拟异步过来后的数据（参照）
-	// var jldataAjaxMn={
-	// 	eeDataY:{
-	// 		"totalEnergy":15290.0,
-	// 		"timeline":[{"1月":1558.2},{"2月":1160.4},{"3月":1271.1},{"4月":1908.6},{"5月":1186.0},{"6月":1102.1}],
-	// 		" pie":{"房1":500,"房2":300,"房3":400}
-	// 	},
-	// 	eeData:{
-	// 		"totalEnergy":15290.0,
-	// 		"timeline":[
-	// 			{"6.1":127.5},{"6.2":104.3},{"6.3":110.6},{"6.4":152.0},{"6.5":144.7},{"6.6":152.6},{"6.7":169.4},{"6.8":136.4},
-	// 			{"6.9":164.3},{"6.10":125.3},{"6.11":144.7},{"6.12":176.4},{"6.13":105.7},{"6.14":152.1},{"6.15":197.3}
-	// 		],
-	// 		"pie":{"房1":500,"房2":300,"房3":400}
-	// 	},
-	
-	
-	// 	weDataY:{
-	// 	"totalEnergy":15290.0,
-	// 	"timeline":[{"1月":1558.2},{"2月":1160.4},{"3月":1271.1},{"4月":1908.6},{"5月":1186.0},{"6月":1102.1}],
-	// 	"pie":{"房1":500,"房2":300,"房3":400}
-	// 	},
-	// 	weData:{
-	// 		"totalEnergy":15290.0,
-	// 		"timeline":[
-	// 			{"6.1":127.5},{"6.2":104.3},{"6.3":110.6},{"6.4":152.0},{"6.5":144.7},{"6.6":152.6},{"6.7":169.4},{"6.8":136.4},
-	// 			{"6.9":164.3},{"6.10":125.3},{"6.11":144.7},{"6.12":176.4},{"6.13":105.7},{"6.14":152.1},{"6.15":197.3}
-	// 		],
-	// 		" pie":{"房1":500,"房2":300,"房3":400}
-	// 	},
-	
-	// 	plData:[
-	// 		{"6.1":[161,176,109,128]},
-	// 		{"6.2":[124,115,156,135]},
-	// 		{"6.3":[147,149,149,190]},
-	// 		{"6.4":[181,168,128,118]},
-	// 		{"6.5":[155,141,165,103]},
-	// 		{"6.6":[156,142,193,157]},
-	// 		{"6.7":[114,135,136,117]},
-	// 		{"6.8":[110,147,126,196]},
-	// 		{"6.9":[171,122,109,192]},
-	// 		{"6.10":[131,166,179,168]},
-	// 		{"6.11":[153,162,116,123]},
-	// 		{"6.12":[113,164,194,189]},
-	// 		{"6.13":[190,179,118,170]},
-	// 		{"6.14":[137,117,151,139]},
-	// 		{"6.15":[191,106,126,120]}
-	// 	],
-	
-	// 	pdData:[
-	// 		{"roomName":"配电1房","totalPower":15241.4,"powerFactor":0.88,"roomTemperature":30.3,"roomHumidity":66,"waterImmersion":"无","tempA":36.8,"tempB":42.3,"tempC":39.6,"voltageA":232.5,"voltageB":228.6,"voltageC":241.8,"currentA":60.5,"currentB":70.8,"currentC":92.6},
-	// 		{"roomName":"配电2房","totalPower":19968.5,"powerFactor":0.88,"roomTemperature":30.3,"roomHumidity":66,"waterImmersion":"无","tempA":36.8,"tempB":42.3,"tempC":39.6,"voltageA":232.5,"voltageB":228.6,"voltageC":241.8,"currentA":60.5,"currentB":70.8,"currentC":92.6},
-	// 		{"roomName":"配电3房","totalPower":15590.4,"powerFactor":0.88,"roomTemperature":30.3,"roomHumidity":66,"waterImmersion":"无","tempA":36.8,"tempB":42.3,"tempC":39.6,"voltageA":232.5,"voltageB":228.6,"voltageC":241.8,"currentA":60.5,"currentB":70.8,"currentC":92.6}
-	// 	],
-	// 	sbData:[
-	// 		{"roomName":"水泵1房","waterLevel":50,"roomTemperature":30.3,"roomHumidity":66,"waterImmersion":"无","voltageA":232.5,"voltageB":228.6,"voltageC":241.8,"currentA":60.5,"currentB":70.8,"currentC":92.6,"rate":100,"status":"运行"},
-	// 		{"roomName":"水泵2房","waterLevel":50,"roomTemperature":30.3,"roomHumidity":66,"waterImmersion":"无","voltageA":232.5,"voltageB":228.6,"voltageC":241.8,"currentA":60.5,"currentB":70.8,"currentC":92.6,"rate":100,"status":"停止"},
-	// 		{"roomName":"水泵3房","waterLevel":50,"roomTemperature":30.3,"roomHumidity":66,"waterImmersion":"无","voltageA":232.5,"voltageB":228.6,"voltageC":241.8,"currentA":60.5,"currentB":70.8,"currentC":92.6,"rate":100,"status":"运行"}
-	// 	],
-	
-	
-	// 	grData:[
-	// 		{"roomName":"发电机1房","oilLevel":50,"roomTemperature":30.3,"roomHumidity":66,"voltage":232.5,"current":60.5,"status":"运行"},
-	// 		{"roomName":"发电机2房","oilLevel":50,"roomTemperature":30.3,"roomHumidity":66,"voltage":232.5,"current":60.5,"status":"停止"},
-	// 		{"roomName":"发电机3房","oilLevel":50,"roomTemperature":30.3,"roomHumidity":66,"voltage":232.5,"current":60.5,"status":"运行"}
-	// 	],
-	
-	
-	// 	others:{
-	// 		"Charge":{"totalNum":60,"faultNum":10,"curChargeNum":20,"curPower":3000.3},
-	// 		"EntranceGuard":{"totalNum":600,"faultNum":100,"openTimes":2000,"closeTimes":3000},
-	// 		"patrol":{"totalPatrol":60,"curPatrol":10},
-	// 		"perimeterSecurity":{"alarmTimes":300},
-	// 		"camera":{"totalNum":60,"offlineNum":10},
-	// 		"alarmInfo":{"totalAlarm":60,"handledAlarm":10},
-	// 		"landscaping":{"status":"启动","soilMoisture":50}
-	// 	}
-	
-	// };
-
-	
-    //循环异步数据
-	
-	function dataPOST(){
-		for(var d=0;d<jldata.ajaxUrl.length;d++){
-			jldataAjax.push(ajaxData(jldata.ajaxUrl[d]));
-		}
-	}
+	var jldata=require("./jlData");//获取模拟数据
+	var jlconfig=require("./jlConfig");//获取配置项（图片地址和异步地址）
 	
 exports.jl = function () {
 	
-	loads.startPreload(jldata.loadimg,function(){
+	loads.startPreload(jlconfig.loadimg,function(){
+		//加载图片
 		$(".loadprogress").fadeOut(200);
 		for (var key in loads.preload._loadItemsById) {
             $("." + key).html(loads.preload.getResult(key));
 		}
 		loads.pageimg($(".page"), 1920, 1080);
-		loadafter();
+
+		//渲染右三项并进行轮播实例
+		domDraw("pdMoudle",jldata.pdData,"pd");
+		domDraw("sbMoudle",jldata.sbData,"sb");
+		domDraw("grMoudle",jldata.grData,"grs");
+		sw();
+
+		//加载初始化数据
+		loadData(jldata);
+
+		//浏览器窗户变化时
 		window.onresize = function () {
 			loads.pageimg($(".page"), 1920, 1080);
-			loadafter();
+			loadData(jldata);
 		}
-		
-$(".cameras").click(function(){
-	alert("我是摄像头："+$(this).index());
-})
+		//摄像头点击后
+		$(".cameras").click(function(){
+			alert("我是摄像头："+$(this).index());
+		});
 
-		//每2秒刷新数据
-		// setInterval(() => {
-		// 	loadafter();
-		// },2000);
-		
+		//刷新数据
+		RfData();
 	})
 }
 
-	function loadafter(){
-		//dataPOST();//异步获取数据
-		//console.log(jldataAjax);
+//数据刷新机制
+function RfData(){
+	//2秒刷新一次数据，刷新20秒，休息10秒，再开始刷	
+	toRfData();
+	setInterval(function(){
+		toRfData();
+	},30000);
 
-		//这里要让jldataAjax异步过来的数据跟本地jldata的模拟数据对好，
-		//jldataAjax是一个数组，
-		//jldata是json,里面分了很多模块数据，把jldataAjax的数据赋给jldata，就可以了，要看清对应数据的细节作用
+	function toRfData(){
+		//每2秒刷新数据
+		var count=1;
+		console.log("数据开始刷新");
+		var rfData= setInterval(function() {
+			console.log("刷新："+count++);
+			ajaxLoadData();//异步获取数据后进行数据加载在页面上显示
+		},2000);
+		//更新20秒后停止刷新数据
+		setTimeout(function(){
+			clearInterval(rfData);
+			console.log("数据停止刷新");
+		},20000)
+	}	
+}
 
+//循环异步获取
+function dataPOST(){
+	var datas=[];
+	for(var d=0;d<jlconfig.ajaxUrl.length;d++){
+		datas.push(ajaxData(jlconfig.ajaxUrl[d]));
+	}
+	return datas;
+}
+//异步获取数据
+function ajaxData(url){
+	$.ajax({ 
+		type: "POST",
+		url: url,  
+		dataType: 'jsonp',
+		crossDomain: true,
+		success: function(data){
+			return data;
+		}
+	});
+}
+
+//异步获取数据后进行数据加载在页面上显示
+function ajaxLoadData(){
+//console.log(dataPOST());
+//这里要让异步过来的数据跟本地jldata的模拟数据的格式和命名对好，
+//异步过来的数据是一个数组，
+//jldata是json,里面分了很多模块数据，把jldataAjax的数据赋给jldata，就可以了，要看清对应数据的细节作用
+loadData(jldata);
+}
+
+
+//渲染dom
+function domDraw(mID,data,drwaID){
+	for(var i=0;i<data.length;i++){
+		$("."+drwaID+" .swiper-wrapper").append($("#"+mID).html());
+	}
+}
+
+//数据加载
+	function loadData(JDATA){
 		//水能电能
-		$(".eetotalEnergy").html(jldata.eeData.totalEnergy);
-		$(".wetotalEnergy").html(jldata.weData.totalEnergy);
-		funs.echartsLine("jl-eeline-ec",jldata.eeData.line);
-		funs.echartsPie("jl-eepie-ec",jldata.eeData.pie);
-		funs.echartsLine("jl-weline-ec",jldata.weData.line);
-		funs.echartsPie("jl-wepie-ec",jldata.weData.pie);
+		$(".eetotalEnergy").html(JDATA.eeData.totalEnergy);
+		$(".wetotalEnergy").html(JDATA.weData.totalEnergy);
+		funs.echartsLine("jl-eeline-ec",JDATA.eeData.line);
+		funs.echartsPie("jl-eepie-ec",JDATA.eeData.pie);
+		funs.echartsLine("jl-weline-ec",JDATA.weData.line);
+		funs.echartsPie("jl-wepie-ec",JDATA.weData.pie);
 		$(".jl-radio").on("click",".jl-rali",function(){
 			$(this).addClass("act").siblings().removeClass("act");
 			if($(this).parent().attr("tochange")=="ee"){
 				if($(this).attr("isdate")=="m"){
-					funs.echartsPie("jl-eepie-ec",jldata.eeData.pie);
-					funs.echartsLine("jl-eeline-ec",jldata.eeData.line);
-					$(".eetotalEnergy").html(jldata.eeData.totalEnergy);
+					funs.echartsPie("jl-eepie-ec",JDATA.eeData.pie);
+					funs.echartsLine("jl-eeline-ec",JDATA.eeData.line);
+					$(".eetotalEnergy").html(JDATA.eeData.totalEnergy);
 				}else{
-					funs.echartsPie("jl-eepie-ec",jldata.eeDataY.pie);
-					funs.echartsLine("jl-eeline-ec",jldata.eeDataY.line);
-					$(".eetotalEnergy").html(jldata.eeDataY.totalEnergy);
+					funs.echartsPie("jl-eepie-ec",JDATA.eeDataY.pie);
+					funs.echartsLine("jl-eeline-ec",JDATA.eeDataY.line);
+					$(".eetotalEnergy").html(JDATA.eeDataY.totalEnergy);
 				}
 			}else{
 				if($(this).attr("isdate")=="m"){
-					funs.echartsPie("jl-wepie-ec",jldata.weData.pie);
-					funs.echartsLine("jl-weline-ec",jldata.weData.line);
-					$(".wetotalEnergy").html(jldata.weData.totalEnergy);
+					funs.echartsPie("jl-wepie-ec",JDATA.weData.pie);
+					funs.echartsLine("jl-weline-ec",JDATA.weData.line);
+					$(".wetotalEnergy").html(JDATA.weData.totalEnergy);
 				}else{
-					funs.echartsPie("jl-wepie-ec",jldata.weDataY.pie);
-					funs.echartsLine("jl-weline-ec",jldata.weDataY.line);
-					$(".wetotalEnergy").html(jldata.weDataY.totalEnergy);
+					funs.echartsPie("jl-wepie-ec",JDATA.weDataY.pie);
+					funs.echartsLine("jl-weline-ec",JDATA.weDataY.line);
+					$(".wetotalEnergy").html(JDATA.weDataY.totalEnergy);
 				}
 			}
 		});
 		
 		//停车场
-		funs.echartsBar("jl-plline-ec",jldata.plData);
+		funs.echartsBar("jl-plline-ec",JDATA.plData);
 		
 		//右边三排
-		mouldeDrwa("pdMoudle",jldata.pdData,"pd");
-		mouldeDrwa("sbMoudle",jldata.sbData,"sb");
-		mouldeDrwa("grMoudle",jldata.grData,"grs");
-
-		var swpd = new Swiper(".pd", {
-			slidesPerView :3,
-			autoplay : 3000,
-			slidesPerGroup : 3,
-			//loop : true,
-			onSlideChangeStart: function(swiper){
-				// for(var key in jldata.others){
-				// 	for(var inkey in jldata.others[key]){
-				// 		$("."+key).find("."+inkey).html(jldata.others[key][inkey]);
-				// 	}	
-				// }
-			  }
-		});
-		var swsb = new Swiper(".sb", {
-			slidesPerView :3,
-			autoplay : 6000,
-			slidesPerGroup : 3,
-			loop : true
-		});
-		var swgr = new Swiper(".grs", {
-			slidesPerView :3,
-			//autoplay : 2000
-		});
-
-		for(var ii=0;ii<pdec.length;ii++){funs.echartsGauge("jl-electric-ec"+ii,pdec[ii]);}
-
-		//st();
-		//var l=0;
-		//var stt= setInterval(() => {
-		//	st();
-		 //},9600);
-
-		//  function st(){
-		// 	swpd.stopAutoplay();
-		// 	swsb.stopAutoplay();
-		// 	swgr.stopAutoplay();
-
-		// 	setTimeout(() => {
-		// 		swpd.startAutoplay();
-		// 		setTimeout(() => {swpd.stopAutoplay();},2000);
-		// 		swsb.stopAutoplay();
-		// 		swgr.stopAutoplay();
-		// 	}, 3000);
-		// 	setTimeout(() => {
-		// 		swpd.stopAutoplay();
-		// 		swsb.startAutoplay();
-		// 		setTimeout(() => {swsb.stopAutoplay();},2000);
-		// 		swgr.stopAutoplay();
-		// 	}, 6000);
-		// 	setTimeout(() => {
-		// 		swpd.stopAutoplay();
-		// 		swsb.stopAutoplay();
-		// 		swgr.startAutoplay();
-		// 		setTimeout(() => {swgr.stopAutoplay();},2000);
-		// 	},9000);
-		//  }
-		
-		
-
-
+		mouldeLoadData(JDATA.pdData,"pd");
+		mouldeLoadData(JDATA.sbData,"sb");
+		mouldeLoadData(JDATA.grData,"grs");
+		for(var ii=0;ii<JDATA.pdData.length;ii++){funs.echartsGauge("jl-electric-ec"+ii,JDATA.pdData[ii].Ds);}
 		//其他
-		for(var key in jldata.others){
-			for(var inkey in jldata.others[key]){
-				$("."+key).find("."+inkey).html(jldata.others[key][inkey]);
+		for(var key in JDATA.others){
+			for(var inkey in JDATA.others[key]){
+				$("."+key).find("."+inkey).html(JDATA.others[key][inkey]);
 			}	
 		}
 	
 	}
 
-	function mouldeDrwa(mID,data,drwaID){
-		for(var i=0;i<data.length;i++){
-			$("#"+mID+" .roomNumber").html(data[i].roomNumber);
-			$("#"+mID+" .roomD").html(data[i].roomD);
-			$("#"+mID+" .roomRH").html(data[i].roomRH);
+//轮播机制
+	function sw(){
+		var swpd = new Swiper(".pd", {
+			slidesPerView : 3,
+			slidesPerGroup : 3,
+			autoplay :6000
+			
+	
+		});
+		var swsb = new Swiper(".sb", {
+			slidesPerView :3,
+			autoplay : 6000,
+			slidesPerGroup : 3,
+			//loop : true
+		});
+		var swgr = new Swiper(".grs", {
+			slidesPerView :3,
+			//autoplay : 2000
+		});
+	}
 
-			$("#"+mID+" .roomDr").html("");
+
+	//右三项数据加载
+	function mouldeLoadData(data,drwaID){
+		var changeID=$("."+drwaID+" .swiper-wrapper .swiper-slide")
+		for(var i=0;i<data.length;i++){
+			changeID.eq(i).find(".roomNumber").html(data[i].roomNumber);
+			changeID.eq(i).find(".roomD").html(data[i].roomD);
+			changeID.eq(i).find(".roomRH").html(data[i].roomRH);
+
+			changeID.eq(i).find(".roomDr").html("");
 			for( var k=0;k<data[i].roomDr.length;k++){
-				$("#"+mID+" .roomDr").append('<b >'+data[i].roomDr[k]+'  <span>A</span>');
+				changeID.eq(i).find(".roomDr").append('<b >'+data[i].roomDr[k]+'  <span>A</span>');
 			}
 
 			if(drwaID=="pd"){
-				$("#"+mID+" .jl-electric-ec").attr("id","jl-electric-ec"+i);
-				pdec.push(data[i].Ds);
-
-				$("#"+mID+" .roomDl").html("");	
+				changeID.eq(i).find(".jl-electric-ec").attr("id","jl-electric-ec"+i);
+				changeID.eq(i).find(".totalPower").html(data[i].totalPower);
+				changeID.eq(i).find(".powerFactor").html(data[i].powerFactor);
+				changeID.eq(i).find(".roomDl").html("");	
 				for( var j=0;j<data[i].roomDl.length;j++){
-					$("#"+mID+" .roomDl").append('<b >'+data[i].roomDl[j]+'  <span>°C</span>');
+					changeID.eq(i).find(".roomDl").append('<b >'+data[i].roomDl[j]+'  <span>°C</span>');
 				}
 			}else{
 				if(drwaID=="sb"){
-					$("#"+mID+" .roomHZ").html(data[i].roomHZ+"<span>HZ</span>");
+					changeID.eq(i).find(".roomHZ").html(data[i].roomHZ+"<span>HZ</span>");
+					changeID.eq(i).find(".waterLevel").html(data[i].waterLevel);
+				}
+				if(drwaID=="grs"){
+					changeID.eq(i).find(".oilLevel").html(data[i].oilLevel);
 				}
 				if(data[i].runing){
-					$("#"+mID+" .runing").addClass("ing").removeClass("un").html("运行");
-					$("#"+mID+" .roomHZ,#"+mID+" .roomDr").removeClass("yc");
-					$("#"+mID+" .jcl-cont-icon").removeClass("un");
+					changeID.eq(i).find(".runing").addClass("ing").removeClass("un").html("运行");
+					changeID.eq(i).find(".roomHZ").removeClass("yc");
+					changeID.eq(i).find(".roomDr").removeClass("yc");
+					changeID.eq(i).find(".jcl-cont-icon").removeClass("un");
 				}else{
-					$("#"+mID+" .runing").addClass("un").removeClass("ing").html("停止");
-					$("#"+mID+" .roomHZ,#"+mID+" .roomDr").addClass("yc");
-					$("#"+mID+" .jcl-cont-icon").addClass("un");
+					changeID.eq(i).find(".runing").addClass("un").removeClass("ing").html("停止");
+					changeID.eq(i).find(".roomHZ").addClass("yc");
+					changeID.eq(i).find(".roomDr").addClass("yc");
+					changeID.eq(i).find(".jcl-cont-icon").addClass("un");
 				}
 			}
-			$("."+drwaID+" .swiper-wrapper").append($("#"+mID).html());
+			
 		}
 
 		
 	}
 
-	function ajaxData(url){
-		$.ajax({ 
-			type: "POST",
-			url: url,  
-			dataType: 'jsonp',
-			crossDomain: true,
-			success: function(data){
-				return data;
-			}
-		});
-	}
+	
 
 });
