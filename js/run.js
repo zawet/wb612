@@ -30,8 +30,12 @@ exports.jl = function () {
 		}
 		//摄像头点击后
 		$(".cameras").click(function(){
-			alert("我是摄像头："+$(this).index());
+			console.log("我是摄像头："+$(this).index());
+			$(".videobox").slideDown(200);
 		});
+		$(".videoclose").click(function(){
+			$(".videobox").slideUp(200);
+		})
 		//ajaxData(jlconfig.ajaxUrl[0][0],jlconfig.ajaxUrl[0][1])//测试用的
 		
 		//RfData();//刷新数据
