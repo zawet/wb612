@@ -68,11 +68,9 @@ function RfData(){
 
 //循环异步获取
 function dataPOST(){
-
 	for(var d=0;d<jlconfig.ajaxUrl.length;d++){
 		ajaxData(jlconfig.ajaxUrl[d][0],jlconfig.ajaxUrl[d][1]);
 	}
-
 }
 //异步获取数据
 function ajaxData(url,key){
@@ -156,6 +154,7 @@ function domDraw(mID,data,drwaID){
 		var swpd = new Swiper(".pd", {
 			slidesPerView : 3,
 			slidesPerGroup : 3,
+			autoplayDisableOnInteraction:false,
 			autoplay :6000
 			
 	
@@ -164,6 +163,7 @@ function domDraw(mID,data,drwaID){
 			slidesPerView :3,
 			autoplay : 6000,
 			slidesPerGroup : 3,
+			autoplayDisableOnInteraction:false,
 			//loop : true
 		});
 		var swgr = new Swiper(".grs", {
