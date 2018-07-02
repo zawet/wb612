@@ -103,7 +103,7 @@ exports.isNull=function (data){
 						formatter: function (value) {
 							return  value+"%";
 						},
-						offsetCenter:['0','90%'],
+						offsetCenter:['0','70%'],
 						width: 100,
 						fontSize:'14',
 						color: '#00fefe',
