@@ -103,7 +103,7 @@ exports.isNull=function (data){
 						formatter: function (value) {
 							return  value+"%";
 						},
-						offsetCenter:['0','90%'],
+						offsetCenter:['0','70%'],
 						width: 100,
 						fontSize:'14',
 						color: '#00fefe',
@@ -139,14 +139,14 @@ exports.isNull=function (data){
 						name:datas.tit,
 						type:'pie',
 						//radius: ['60%','65%'],
-						radius: '80%',
+						radius: '70%',
 						avoidLabelOverlap: false,
 						startAngle:0,
 						center: ['50%', '50%'],
 						itemStyle:{normal:{
 						}},
-						label:{normal:{textStyle:{fontSize:14},show:false,formatter: '{b}: \n {d}%'}},
-						labelLine:{normal:{smooth:false,length:12,length2:8,show:false}},
+						label:{normal:{textStyle:{fontSize:14},show:true,formatter: '{b}'}},
+						labelLine:{normal:{smooth:true,length:6,length2:4,show:true}},
 						data:values
 					}
 				]
@@ -256,8 +256,12 @@ exports.isNull=function (data){
 					type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
 				}
 			},
+			legend: {
+				textStyle:{color:"#fff"},
+				data:  datas.tit
+			},
 			grid: {
-				top:'5%',
+				top:'15%',
 				left: '3%',
 				right: '4%',
 				bottom: '3%',
@@ -282,7 +286,7 @@ exports.isNull=function (data){
 				{
 					name: datas.tit[0],
 					type: 'bar',
-					itemStyle:{normal:{color:'#418fb4'}},
+					itemStyle:{normal:{color:'#07c0c0'}},
 					barGap:"0%",
 					label:labelInfo,
 					data: value1
@@ -290,7 +294,7 @@ exports.isNull=function (data){
 				{
 					name: datas.tit[1],
 					type: 'bar',
-					itemStyle:{normal:{color:'#003366'}},
+					itemStyle:{normal:{color:'#b46b0d'}},
 					barGap:"0%",
 					label:labelInfo,
 					data: value2
@@ -298,7 +302,7 @@ exports.isNull=function (data){
 				{
 					name: datas.tit[2],
 					type: 'bar',
-					itemStyle:{normal:{color:'#045789'}},
+					itemStyle:{normal:{color:'#0864c2'}},
 					barGap:"0%",
 					label:labelInfo,
 					data: value3
