@@ -139,10 +139,10 @@ exports.isNull=function (data){
 						name:datas.tit,
 						type:'pie',
 						//radius: ['60%','65%'],
-						radius: '70%',
+						radius: '50%',
 						avoidLabelOverlap: false,
 						startAngle:0,
-						center: ['50%', '50%'],
+						center: ['45%', '50%'],
 						itemStyle:{normal:{
 						}},
 						label:{normal:{textStyle:{fontSize:14},show:true,formatter: '{b}'}},
